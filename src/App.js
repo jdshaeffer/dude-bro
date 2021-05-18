@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import NameChanger from './NameChanger'
 
-function App() {
+const App = () => {
+  const [name, setName] = useState('jd')
+  const [age, setAge] = useState(25)
+
+  const handleStuff = newName => {
+    setName(newName)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>
+        dude bro, my name is {name}, and i'm {age} years old
+      </h1>
+      <NameChanger handler={handleStuff} />
     </div>
   );
 }
